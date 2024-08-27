@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+int main(){
+	
+	int n;
+	int a,b;
+	
+	scanf("%d",&n);
+	scanf("%d %d",&a,&b);
+	
+	if(n%a==0&&n%b==0){
+		printf("1");
+	
+	}
+	
+	else{
+		printf("0");
+	}
+}
+
+#include <stdio.h>
+
+int main(){
+	
+	int sum=0;
+	int total=0;
+	
+	for(int i=1;i<=1000;i++){
+		if(i%3==0){
+			printf("-%d ",i);
+			total+=-i;
+		}
+		else{
+			printf("%d ",i);
+			sum+=i;
+		}
+		
+	}
+	
+	printf("%d",sum+total);
+}
+
+#include <stdio.h>
+
+int main(){
+	
+	
+	int	sum=0;
+	int min=10000;
+	
+	
+	
+	for(int i=1;i<=4;i++){
+		int input;
+		scanf("%d",&input);
+		if(input%2!=0){
+			sum+=input;
+			if(input<min){
+				min=input;
+			}
+			
+		}
+		
+			
+		}
+		
+	
+	
+	if(sum!=0){
+		printf("%d\n%d",sum,min);
+	}
+	else{
+		printf("-1");
+	}
+	
+	
+	
+}
