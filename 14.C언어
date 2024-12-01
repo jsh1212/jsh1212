@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// n에 대해 숫자 패턴을 출력하는 함수
+void PrintPattern(int n) {
+    if (n == 0) return;  // 종료 조건 (n이 0일 때 종료)
+
+    PrintPattern(n - 1);  // 이전 패턴 출력
+
+    printf("%d ", n);  // 현재 숫자 출력
+
+    PrintPattern(n - 1);  // 이전 패턴 출력
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 양의 정수 n 입력 받기
+
+    // 주어진 n에 대해 숫자 패턴 출력
+    PrintPattern(n);
+
+    return 0;
+}
