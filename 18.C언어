@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 점화식을 사용하여 a_n 값을 계산하는 재귀 함수
+double calculatePi(int n) {
+    if (n == 1) {
+        return 4.0;  // a1은 4
+    }
+    if (n % 2 == 0) {
+        return (n / (double)(n + 1)) * calculatePi(n - 1);  // n이 짝수일 때
+    } else {
+        return ((n + 1) / (double)n) * calculatePi(n - 1);  // n이 홀수일 때
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 자연수 n을 입력받기
+
+    // 원주율 근사값 계산 및 출력 (소수점 5자리까지 출력)
+    printf("%.5f\n", calculatePi(n));
+
+    return 0;
+}
