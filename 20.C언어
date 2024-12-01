@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 두 양의 정수 a와 b의 최대공약수를 구하는 재귀 함수
+int GetGCD(int a, int b) {
+    if (b == 0) {
+        return a;  // 기저 조건: b가 0일 때, a가 최대공약수
+    }
+    return GetGCD(b, a % b);  // 재귀 호출: GCD(b, a % b)
+}
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);  // 세 개의 양의 정수 입력 받기
+
+    // 세 개의 수의 최대공약수 계산
+    int gcd_ab = GetGCD(a, b);  // a와 b의 최대공약수
+    int gcd_abc = GetGCD(gcd_ab, c);  // a와 b의 GCD와 c의 GCD 계산
+
+    printf("%d\n", gcd_abc);  // 세 수의 최대공약수 출력
+
+    return 0;
+}
