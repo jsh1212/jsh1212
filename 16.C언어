@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 최대 피자 조각 수를 계산하는 함수
+int maxPizzaPieces(int n) {
+    // 수학적 공식: f(n) = 1 + (n * (n + 1)) / 2
+    return (n * (n + 1)) / 2 + 1;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 자르는 횟수 n을 입력 받기
+
+    // 최대 피자 조각 수 출력
+    printf("%d\n", maxPizzaPieces(n));
+
+    return 0;
+}
