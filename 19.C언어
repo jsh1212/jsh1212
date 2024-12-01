@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 전역 변수: a_0의 초기값 설정
+int a_prev = -3;
+
+// 점화식에 따라 a_n을 계산하는 함수
+int GetAn(void) {
+    // n번째 호출될 때마다 a_n을 계산
+    if (a_prev >= 0) {
+        a_prev = 2 * a_prev - 8;
+    } else {
+        a_prev = -a_prev + 2;
+    }
+    return a_prev;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 양의 정수 n 입력 받기
+
+    int sum = 0;  // 누적 합 변수
+    for (int i = 1; i <= n; i++) {
+        int an = GetAn();  // i번째 호출된 a_n 값
+        sum += an;  // 누적 합에 더하기
+    }
+
+    printf("%d %d\n", GetAn(), sum);  // 마지막 a_n 값과 누적 합 출력
+
+    return 0;
+}
