@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 직선을 그리는 함수
+void drawLine(int x, int y) {
+    // y 값에 맞는 줄 수를 출력 (y가 음수이므로 abs(y)만큼 줄을 출력)
+    for (int i = 1; i <= -y; i++) {
+        // x 값에 맞는 공백을 출력
+        for (int j = 1; j <= (i - 1) * (x / -y); j++) {
+            printf(" ");  // 공백 출력
+        }
+        // '*' 출력
+        printf("*\n");
+    }
+}
+
+int main() {
+    int x, y;
+    // x, y 좌표 입력 받기
+    scanf("%d %d", &x, &y);
+
+    // 직선 그리기
+    drawLine(x, y);
+
+    return 0;
+}
