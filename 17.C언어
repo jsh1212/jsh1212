@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // VALUE 매크로 정의 (현재 코드에서는 사용되지 않지만 요청에 따라 포함)
+
+// 재귀 함수: n까지의 조화급수를 계산하는 함수
+double harmonic(int n) {
+    if (n == 1)  // 기저 조건: n이 1일 때, 반환 값은 1
+        return 1.0;
+    return 1.0 / n + harmonic(n - 1);  // n번째 항을 더하고, n-1번째 항을 재귀적으로 계산
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 자연수 n을 입력 받기
+
+    // 조화급수 값 계산 및 출력
+    printf("%.5f\n", harmonic(n));
+
+    return 0;
+}
