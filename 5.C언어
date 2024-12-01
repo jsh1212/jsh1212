@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000
+
+// power 함수: a^b를 계산하여 반환
+int power(int a, int b) {
+    int result = 1;
+    for (int i = 0; i < b; i++) {
+        result *= a;
+    }
+    return result;
+}
+
+int main() {
+    int n;
+
+    // n 값을 입력받기
+    printf("20보다 작은 양의 정수 n을 입력하세요: ");
+    scanf("%d", &n);
+
+    // n 값이 20보다 작은지 확인
+    if (n <= 0 || n >= 20) {
+        printf("n은 1 이상 19 이하의 값이어야 합니다.\n");
+        return 1;  // 잘못된 입력 처리
+    }
+
+    // 3^1 부터 3^n 까지 출력
+    for (int i = 1; i <= n; i++) {
+        printf("%d ", power(3, i));  // 3^i 출력
+    }
+    printf("\n");
+
+    return 0;
+}
