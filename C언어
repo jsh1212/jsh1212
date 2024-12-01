@@ -1,19 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-#define VALUE 10000  // 이 값을 변의 길이로 사용
+#define VALUE 10000  
 
-// 속이 빈 정사각형을 그리는 함수
-void draw_hollow_square(int n) {
-    if (n <= 0) return;  // n이 0 이하인 경우 출력하지 않음
-
-    // 첫 번째 줄은 '*'로 채운다
+void square(int n) {
+    if (n <= 0) return;  
+    
     for (int i = 0; i < n; i++) {
         printf("*");
     }
     printf("\n");
 
-    // 중간 줄은 첫 번째와 마지막 문자는 '*'이고 나머지는 공백
+    
     for (int i = 0; i < n - 2; i++) {
         printf("*");
         for (int j = 0; j < n - 2; j++) {
@@ -22,7 +20,7 @@ void draw_hollow_square(int n) {
         printf("*\n");
     }
 
-    // 마지막 줄은 '*'로 채운다
+
     if (n > 1) {
         for (int i = 0; i < n; i++) {
             printf("*");
@@ -34,16 +32,9 @@ void draw_hollow_square(int n) {
 int main() {
     int n;
 
-    // 사용자로부터 변의 길이를 입력받는다
-    printf("정사각형의 변의 길이를 입력하세요: ");
     scanf("%d", &n);
 
-    // VALUE는 예시로 사용하지 않으며, n이 그 값을 대신 사용한다.
-    if (n > VALUE) {
-        printf("입력된 값이 너무 큽니다.\n");
-    } else {
-        draw_hollow_square(n);  // 함수를 호출하여 출력
-    }
+     square(n);
 
     return 0;
 }
