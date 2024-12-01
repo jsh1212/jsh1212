@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000  // 이 값을 제한으로 사용
+
+// 각 숫자에 해당하는 영어 단어 배열
+const char* number_to_word(int num) {
+    switch (num) {
+        case 0: return "zero";
+        case 1: return "one";
+        case 2: return "two";
+        case 3: return "three";
+        case 4: return "four";
+        case 5: return "five";
+        case 6: return "six";
+        case 7: return "seven";
+        case 8: return "eight";
+        case 9: return "nine";
+        default: return "";
+    }
+}
+
+int main() {
+    int num;
+
+    // 사용자로부터 양의 정수를 입력받음
+    printf("양의 정수를 입력하세요: ");
+    scanf("%d", &num);
+
+    // 값이 0 이하이거나 VALUE 이상인 경우
+    if (num <= 0 || num >= VALUE) {
+        printf("유효한 값을 입력하세요 (1 ~ 9999).\n");
+        return 1;
+    }
+
+    // 각 자릿수를 영어로 출력
+    printf("입력된 숫자의 영어 표기: ");
+    while (num > 0) {
+        int digit = num / 10;  // 가장 앞 자릿수를 추출
+        num %= 10;             // num의 마지막 자리를 제거
+        printf("%s ", number_to_word(digit));
+    }
+    printf("\n");
+
+    return 0;
+}
