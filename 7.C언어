@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000   // VALUE 매크로 정의
+
+// 근사값으로 제곱근 계산
+double sqrt_approx(double x) {
+    double guess = x / 2.0;
+    while (1) {
+        double next_guess = (guess + x / guess) / 2;
+        if (guess == next_guess) break;
+        guess = next_guess;
+    }
+    return guess;
+}
+
+// 근사값으로 아크코사인 계산
+double acos_approx(double x) {
+    if (x < -1) x = -1;  // 범위 조정
+    if (x > 1) x = 1;
+    return 1.5707963267948966 - x * (0.5 + 0.25 * x * x);  // 간단한 근사식
+}
+
+int main() {
+    double x1, y1, x2, y2;
+    scanf("%lf %lf %lf %lf", &x1, &y1, &x2, &y2);
+    
+    // 두 벡터의 내적과 크기 계산
+    double dot_product = x1 * x2 + y1 * y2;
+    double mag1 = sqrt_approx(x1 * x1 + y1 * y1);
+    double mag2 = sqrt_approx(x2 * x2 + y2 * y2);
+    
+    // 코사인 값 계산
+    double cos_theta = dot_product / (mag1 * mag2);
+    
+    // 아크코사인으로 각도 계산
+    double angle = acos_approx(cos_theta);
+    
+    printf("%.6f\n", angle);
+    return 0;
+}
