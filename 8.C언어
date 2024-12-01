@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE 10000   // VALUE 매크로 정의 (현재 코드에서 사용하지 않지만 요청에 따라 포함)
+
+// 짝수 확인 함수
+int even(int n) {
+    if (n % 2 == 0) {
+        return 1;  // 짝수이면 1 반환
+    }
+    return 0;  // 홀수이면 0 반환
+}
+
+// 절대값 함수
+int absolute(int n) {
+    if (n < 0) {
+        return -n;  // 음수일 경우 음수 부호를 제거하여 절대값 반환
+    }
+    return n;  // 양수나 0이면 그대로 반환
+}
+
+// 부호 반환 함수
+int sign(int n) {
+    if (n < 0) {
+        return -1;  // 음수일 경우 -1 반환
+    } else if (n > 0) {
+        return 1;   // 양수일 경우 1 반환
+    }
+    return 0;  // 0일 경우 0 반환
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);  // 정수 n 입력받기
+    
+    // 함수 호출 및 출력
+    printf("%d %d %d\n", even(n), absolute(n), sign(n));
+
+    return 0;
+}
