@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define VALUE10000 
+
+int Convert(int a, int r) {
+   
+    if (a == 0) {
+        return 0;
+    }
+
+    int digit = a % 10; 
+    if (digit >= r) {
+        return 0;  
+    }
+ 
+    return digit + r * Convert(a / 10, r);
+}
+
+int main() {
+    int a, r;
+
+    scanf("%d %d", &a, &r);
+
+   
+    int result = Convert(a, r);
+    if (result == 0) {
+        printf("0\n");  
+    }
+    else {
+        printf("%d\n", result);  
+    }
+
+    return 0;
+}
